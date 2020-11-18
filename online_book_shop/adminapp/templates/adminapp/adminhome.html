@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+
+
+
+{% extends "adminapp/adminbase.html" %}
+
+
+{% block body_block %}
+<div class="contain">
+
+
+
+
+   {% for category in categories %}
+
+      <h3 style="color:#47748b">{{category}}</h3><hr>
+        <div class="row">
+
+      {% for book in books %}
+
+         {% ifequal category book.category %}
+
+
+                <div style="float:left">
+                    <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;border-color: #46C7C7;margin-top:25px">
+                        <img src="{{book.image.url}}" class="card-img-top" height="200" width="50" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title"style="color:#47748b">By {{book.author}}</h6>
+                                <a href="{% url 'bookview' book.id%}"style="color:green">View Details</a>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+         {% endifequal %}
+
+      {% endfor %}
+       </div>
+      <br>
+   {% endfor %}
+
+
+</div>
+
+{% endblock %}
+

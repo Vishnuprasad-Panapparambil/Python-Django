@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "customer/customerbase.html" %}
+
+
+{% block body_block %}
+
+<div class="contain">
+
+    <div class="row">
+
+        <div class="col-4"></div>
+        <div class="col-4"><h4 style="color:#47748b">Successfully Added To Cart..</h4></div>
+        <div class="col-4"></div>
+
+    </div>
+    <br>
+
+        <div class="row">
+
+        <div class="col-4"></div>
+        <div class="col-4">
+
+            <a href="{% url 'carted' %}"><h5 style="color:green">Check Your Cart Now..</h5></a>
+
+        </div>
+        <div class="col-4"></div>
+
+    </div>
+
+</div>
+{% endblock %}

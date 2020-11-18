@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% extends "customer/customerbase.html" %}
+
+
+{% block body_block %}
+
+
+
+<hr style="background-color:#FFD801;">
+<div class="container" >
+    <p></p>
+
+
+
+
+            <form method="post" style="color:#2B547E;">
+                {% csrf_token %}
+
+
+
+
+                {{search.form}}
+
+                <input type="submit" class="btn btn-outline-warning" style="color:#2B547E;" value="Apply Filters...">
+
+            </form>
+
+
+
+
+
+        </div>
+
+<hr style="background-color:#FFD801;">
+
+
+    <div class="row">
+
+
+
+
+    {% for mob in mobilesearch.qs %}
+
+    <div class="col-lg-4">
+    <div class="card" style="width: 18rem;border-color:#FFFFFF;margin-top:100px">
+    <img src="{{mob.images.url}}" class="card-img-top" alt="..." width="30" height="250">
+    <div class="card-body" style="color:#2B547E;">
+        Name : {{mob.mobile_name}}<br>
+        Brand : {{mob.brand}}<br>
+        Price : {{mob.price}}<br>
+        <p></p>
+    <a href="{% url 'details' mob.id %}" class="btn btn-outline-success">Details</a>
+    </div>
+</div>
+
+    </div>
+    {% endfor %}
+
+        </div>
+
+
+
+
+
+
+
+    <div class="row">
+
+        <h4 style="color:#2B547E;"> Mobiles Available Now</h4>
+        <hr style="color:#2B547E;">
+    </div>
+
+
+     <div class="row">
+
+
+    {% for mobile in mobiles %}
+
+    <div class="col-lg-4">
+    <div class="card" style="width: 18rem;border-color:#FFFFFF;margin-top:100px">
+    <img src="{{mobile.images.url}}" class="card-img-top" alt="..." width="30" height="250">
+    <div class="card-body" style="color:#2B547E;">
+        Name : {{mobile.mobile_name}}<br>
+        Brand : {{mobile.brand}}<br>
+        Price : {{mobile.price}}<br>
+        <p></p>
+    <a href="{% url 'details' mobile.id %}" class="btn btn-outline-success">Details</a>
+    </div>
+</div>
+
+    </div>
+    {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

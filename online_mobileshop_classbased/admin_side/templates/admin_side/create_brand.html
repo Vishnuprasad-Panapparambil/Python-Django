@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends "admin_side/adminbase.html" %}
+
+
+{% block body_block %}
+
+<div class="container">
+
+
+    <div class="row" >
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1 style="color:#2B547E">Create Brand</h1>
+            <form method="post">
+                {%csrf_token%}
+
+                {{form.as_p}}
+
+                <input type="submit" class="btn btn-success" value="create">
+            </form>
+
+        </div>
+        <div class="col-4"></div>
+
+
+    </div>
+
+
+
+
+</div>
+<P></P>
+<div class="contain">
+
+            <table class="table table-striped">
+                <tr style="color:#2B547E;">
+                    <td><strong>BrandName </strong> </td>
+                    <td><strong>Action </strong>    </td>
+                </tr>
+                {% for brand in brands %}
+                <tr style="color:#2B547E;">
+                    <td>
+                        {{brand.brand_name}}
+                    </td>
+
+                    <td><a href="{% url 'editbrand' brand.id %}" class="btn btn-outline-primary">Edit</a>    </td>
+                    <td><a href="{% url 'deletebrand' brand.id %}" class="btn btn-outline-danger">Delete</a>  </td>
+
+
+                </tr>
+               {% endfor %}
+
+            </table>
+
+</div>
+
+
+
+{% endblock %}

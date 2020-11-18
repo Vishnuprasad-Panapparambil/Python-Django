@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+{% extends "customer/customerbase.html" %}
+
+
+{% block body_block %}
+<body>
+
+<div class="contain">
+
+ <div class="row">
+
+
+            <form method="post" style="color:#47748b">
+                {%csrf_token%}
+
+
+                    {{search.form}}
+
+
+                <input type="submit" class="btn btn-outline-success" value="search">
+
+
+            </form>
+
+</div>
+</div>
+<p></p>
+<hr>
+<p></p>
+<div class="cont">
+<div class="row">
+
+    {% for book in books.qs %}
+
+
+
+
+                <div style="float:left">
+                    <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;border-color: #46C7C7;margin-top:25px">
+                        <img src="{{book.image.url}}" class="card-img-top" height="200" width="50" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title"style="color:#47748b">By {{book.author}}</h6>
+                                <a href="{% url 'bookdetails' book.id%}" style="color:green">View Details</a>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+      {% endfor %}
+
+
+
+
+
+
+</div>
+</div>
+<p></p>
+<hr>
+<p></p>
+<div class="container">
+    <div class="row">
+    <h1 style="color:#47748b">Books Available</h1><br>
+    <div>
+<div class="row">
+
+    {% for book in bookcollection %}
+
+
+
+
+                <div style="float:left">
+                    <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;border-color: #46C7C7;margin-top:25px">
+                        <img src="{{book.image.url}}" class="card-img-top" height="200" width="50" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title"style="color:#47748b">By {{book.author}}</h6>
+                                <a href="{% url 'bookdetails' book.id%}"style="color:green">View Details</a>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+      {% endfor %}
+
+
+</div>
+</div>
+
+{% endblock %}

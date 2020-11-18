@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% extends "adminapp/create_edit_base.html" %}
+
+
+{% block body_block %}
+
+
+
+
+<div class="container">
+ <div class="row">
+
+
+            <form method="post" style="color:#47748b">
+                {%csrf_token%}
+
+
+                    {{search.form}}
+
+
+                <input type="submit" class="btn btn-outline-success" value="search">
+
+
+            </form>
+
+</div>
+
+<p></p>
+<hr>
+<div class="row">
+
+
+
+            <table class="table table-striped">
+
+                {% for book in books.qs %}
+                <tr>
+                    <td>{{book.bookname}}</td>
+                    <td>{{book.category}}</td>
+                    <td>{{book.price}}</td>
+                    <td><a href="{% url 'bookview' book.id%}" class="btn btn-success">View</a>    </td>
+                    <td><a href="{% url 'bookedit' book.id%}" class="btn btn-primary">Edit</a>    </td>
+                    <td><a href="{% url 'deletebook' book.id%}" class="btn btn-danger">Delete</a>  </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+
+</div>
+
+
+<div class="row">
+
+
+
+            <table class="table table-striped">
+                <tr style="color:#47748b">
+                    <td>Book Name</td>
+                    <td>Book Category</td>
+                    <td>Price</td>
+                    <td>Action</td>
+                </tr>
+                {% for book in allbooks %}
+                <tr>
+                    <td>{{book.bookname}}</td>
+                    <td>{{book.category}}</td>
+                    <td>{{book.price}}</td>
+                    <td><a href="{% url 'bookview' book.id%}" class="btn btn-success">View</a>    </td>
+                    <td><a href="{% url 'bookedit' book.id%}" class="btn btn-primary">Edit</a>    </td>
+                    <td><a href="{% url 'deletebook' book.id%}" class="btn btn-danger">Delete</a>  </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+
+</div>
+
+{% endblock %}
+

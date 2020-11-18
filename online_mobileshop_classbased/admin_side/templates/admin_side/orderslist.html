@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% extends "admin_side/adminbase.html" %}
+
+
+{% block body_block %}
+
+<div class="container">
+    <div class="row">
+
+    <div class="col-6">
+
+             <h1 style="color:#2B547E;">Orders</h1>
+             <table class="table table-striped">
+
+                 <tr style="color:#2B547E;">
+                     <td><strong>Person name</strong></td>
+                     <td><strong>Product</strong></td>
+                     <td><strong>Address</strong></td>
+
+                     <td><strong>Email</strong></td>
+                     <td><strong>Status</strong></td>
+                 </tr>
+
+                 {% for order in mobiles %}
+
+                 <tr style="color:#2B547E;">
+                     <td>{{order.personname}}</td>
+                     <td>{{order.product_name}}</td>
+
+                     <td>{{order.address}}</td>
+                     <td>{{order.email}}</td>
+                     <td>
+                             <a href="{% url 'orderupdate' order.id %}" class="btn btn-outline-success">{{order.status}}</a>
+                     </td>
+
+
+
+
+                 </tr>
+
+
+
+                 {% endfor %}
+
+
+
+
+
+
+             </table>
+
+
+         </div>
+        <div class="col-6" style="background-color:#ECECEF">
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Save Changes">
+
+        </form>
+    </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

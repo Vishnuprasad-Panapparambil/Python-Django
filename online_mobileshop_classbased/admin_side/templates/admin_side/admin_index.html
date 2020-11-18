@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends "admin_side/adminbase.html" %}
+
+
+{% block body_block %}
+
+<div class="container">
+
+         <div class="row">
+
+
+    {% for mobile in mobiles %}
+
+    <div class="col-lg-4">
+    <div class="card" style="width: 18rem;border-color:#FFFFFF;margin-top:100px">
+    <img src="{{mobile.images.url}}" class="card-img-top" alt="..." width="30" height="250">
+    <div class="card-body" style="color:#2B547E;">
+        Name : {{mobile.mobile_name}}<br>
+        Brand : {{mobile.brand}}<br>
+        Price : {{mobile.price}}<br>
+        <p></p>
+    <a href="{% url 'view' mobile.id %}" class="btn btn-outline-success">View</a>
+    </div>
+</div>
+
+    </div>
+    {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

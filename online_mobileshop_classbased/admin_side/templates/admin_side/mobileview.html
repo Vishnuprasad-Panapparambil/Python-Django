@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends "admin_side/adminbase.html" %}
+
+
+{% block body_block %}
+
+<div class="container">
+
+
+
+    <div class="row">
+
+        <div class="col-3"></div>
+
+
+            <div class="col-3" style="background-color:#FEFCFF">
+
+
+
+
+
+
+            <img src="{{mobiles.images.url}}" class="card-img-top" alt="...">
+
+
+            </div>
+            <div class="col-3" style="background-color:#FEFCFF;">
+                <h4 style="color:#2B547E">
+                    <p>{{mobiles.mobile_name}}</p><br></h4>
+                <h6 style="color:#2B547E">
+
+                    <p>Brand : {{mobiles.brand}}</p>
+                    <p>Ram : {{mobiles.ram}}</p>
+                    <p>Camera : {{mobiles.camera}}</p>
+                    <p>Os : {{mobiles.os}}</p>
+                    <p>Price : {{mobiles.price}}</p>
+                </h6>
+
+
+            </div>
+            <div class="col-3"></div>
+
+
+
+            </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends "adminapp/create_edit_base.html" %}
+
+
+{% block body_block %}
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-4"></div>
+        <div class="col-4">
+            <p></p>
+            <h1 style="color:#47748b">Specifications</h1>
+
+            <p></p>
+
+                <div class="card" style="width: 20rem;color:#47748b;border-color: #46C7C7;">
+    <img src="{{books.image.url}}" class="card-img-top" alt="..." width="30px" height="300">
+    <div class="card-body">
+
+            Book : {{books.bookname}}<br>
+            Author : {{books.author}}<br>
+            Category : {{books.category}}<br>
+            Language : {{books.language}}<br>
+            Publisher : {{books.publisher}}<br>
+            Pages : {{books.pages}}<br>
+            Price : {{books.price}}<br>
+
+        </div>
+        <div class="col-4"></div>
+
+
+
+    </div>
+
+
+</div>
+
+        {% endblock %}
+
+

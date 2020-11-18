@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends "admin_side/adminbase.html" %}
+
+
+{% block body_block %}
+
+<div class="container">
+
+
+    <div class="row" style="color:#2B547E;">
+
+        <h1>Carted items</h1>
+        <table class="table table-striped">
+
+            <tr style="color:#2B547E;">
+                <td><strong>Product</strong></td>
+                <td><strong>Count</strong></td>
+            </tr>
+        {% for item in carted %}
+
+        <tr>
+            <td>{{item.productname}}</td>
+            <td>{{item.productname__count}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
+    </div>
+    <div class="row" style="color:#2B547E;">
+        <h1>Delivered items</h1>
+        <table class="table table-striped">
+
+            <tr style="color:#2B547E;">
+                <td><strong>Product</strong></td>
+                <td><strong>Count</strong></td>
+            </tr>
+        {% for item in delivered %}
+
+        <tr>
+            <td>{{item.product_name}}</td>
+            <td>{{item.product_name__count}}</td>
+        </tr>
+
+        {% endfor %}
+        </table>
+
+    </div>
+    <div class="row" style="color:#2B547E;">
+
+        <h1>Delivary pending</h1>
+        <table class="table table-striped">
+
+            <tr style="color:#2B547E;">
+                <td><strong>Product</strong></td>
+                <td><strong>Count</strong></td>
+            </tr>
+        {% for item in pending %}
+
+        <tr>
+            <td>{{item.product_name}}</td>
+            <td>{{item.product_name__count}}</td>
+        </tr>
+        </table>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

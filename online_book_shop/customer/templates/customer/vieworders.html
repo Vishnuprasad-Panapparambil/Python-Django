@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends "customer/customerbase.html" %}
+
+
+{% block body_block %}
+
+<div class="contain">
+
+    <div class="row">
+
+
+
+             <h1 style="color:#47748b">Your Orders</h1>
+             <table class="table table-striped">
+
+                 <tr style="color:#47748b">
+                     <td>Person name</td>
+                     <td>Address</td>
+
+                     <td>Email</td>
+                     <td>Product</td>
+                     <td>Status</td>
+                     <td>Click to cancel order</td>
+
+                 </tr>
+                 {% for order in form%}
+                {% for book in books %}
+
+                 {% ifequal order.productid book.id %}
+
+
+                 <tr>
+
+
+                     <td>{{order.personname}}</td>
+                     <td>{{order.address}}</td>
+                     <td>{{order.email}}</td>
+
+                        <td>{{book.bookname}}</td>
+
+                     <td>{{order.status}}</td>
+
+                     <td style="color:#47748b">
+                         <a href="{% url 'cancelorder' order.id %}"class="btn btn-outline-danger">Cancel</a>
+                     </td>
+
+                 </tr>
+                  {% endifequal %}
+                 {% endfor %}
+
+                 {% endfor %}
+             </table>
+
+
+    </div>
+
+</div>
+
+    {% endblock %}

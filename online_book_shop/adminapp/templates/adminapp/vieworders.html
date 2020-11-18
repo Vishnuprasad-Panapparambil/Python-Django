@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends "adminapp/adminbase.html" %}
+
+
+{% block body_block %}
+
+<div class="contain">
+
+    <div class="row">
+
+
+
+
+             <table class="table table-striped">
+
+                 <tr style="color:#47748b">
+
+                     <td><h4>Person name</h4></td>
+                     <td><h4>Address</h4></td>
+
+                     <td><h4>Email</h4></td>
+                     <td><h4>Product</h4></td>
+                     <td><h4>Status</h4></td>
+
+                 </tr>
+
+                 {% for order in form%}
+
+
+                 <tr>
+                     <td>{{order.personname}}</td>
+                     <td>{{order.address}}</td>
+                     <td>{{order.email}}</td>
+                     <td>{{order.productid}}</td>
+
+
+                     <td>{{order.status}}</td>
+                     <td>
+
+                         <a href="{% url 'orderupdates' order.id %}" style="color:red;">Update</a>
+
+                     </td>
+                 </tr>
+
+                 {% endfor %}
+             </table>
+
+
+
+    </div>
+
+</div>
+
+    {% endblock %}

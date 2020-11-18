@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+{% extends "adminapp/create_edit_base.html" %}
+
+
+{% block body_block %}
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1 style="color:#47748b">Create Book</h1>
+            <form method="post"enctype="multipart/form-data">
+                {%csrf_token%}
+
+                {{form.as_p}}
+                <input type="submit" class="btn btn-success" value="create">
+
+            </form>
+
+
+            {% if books %}
+            <p></p>
+
+
+            <td><h5>{{books.bookname}} is successfully added...</h5></td>
+
+
+                {% endif %}
+
+            <p></p>
+
+            <a href="{% url 'bookonstock'%}">Books on stock</a>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+</div>
+
+{% endblock %}

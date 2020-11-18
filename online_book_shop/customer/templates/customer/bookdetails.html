@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends "customer/customerbase.html" %}
+
+
+{% block body_block %}
+
+
+<div class="container">
+
+
+
+    <div class="row">
+
+        <div class="col-3"></div>
+
+
+            <div class="col-3" style="background-color:#FEFCFF">
+
+
+
+
+
+
+            <img src="{{books.image.url}}" class="card-img-top" alt="...">
+
+
+            </div>
+            <div class="col-3" style="background-color:#FEFCFF;">
+                <h4 style="color: #47748b">
+                    <p>{{books.bookname}}</p><br></h4>
+                <h6 style="color: #47748b">
+                    <p>Author : {{books.author}}</p>
+                    <p>Category : {{books.category}}</p>
+                    <p>Language : {{books.language}}</p>
+                    <p>Publisher : {{books.publisher}}</p>
+                    <p>Pages : {{books.pages}}</p>
+                    <p>Price : {{books.price}}</p>
+                </h6>
+
+
+            </div>
+            <div class="col-3"></div>
+
+
+
+            </div>
+            <p></p>
+            <div class="row">
+
+                <div class="col-3"></div>
+
+                <div class="col-3"></div>
+
+                <div class="col-3"style="background-color:#FEFCFF"><a href="{%url 'order' books.id %}" class="btn btn-outline-success">Order Now</a></div>
+
+                <div class="col-3"></div>
+
+
+
+            </div>
+
+
+</div>
+
+        {% endblock %}
+
